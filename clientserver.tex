@@ -1,0 +1,78 @@
+\pagebreak{}
+\section{Client-Server Communication}
+\subsection{Client code}
+\begin{verbatim}
+
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) {
+        try {
+            Socket server;
+            String str = "";
+            DataInputStream d = new DataInputStream(System.in);
+            PrintStream toserver;
+            BufferedReader fromserver;
+            server = new Socket("192.168.0.204", 1096);
+            InputStreamReader isr = new InputStreamReader(server.getInputStream());
+            fromserver = new BufferedReader(isr);
+            toserver = new PrintStream(server.getOutputStream());
+            while (true) {
+                str = ";"+d.readLine();
+                toserver.println(str);
+                str = fromserver.readLine();
+                System.out.println(str);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+\end{verbatim}
+\pagebreak{}
+\subsection{Server code}
+\begin{verbatim}
+
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) {
+        ServerSocket sc;
+        Socket client;
+        DataInputStream d;
+        PrintStream toclient;
+        BufferedReader fromclient;
+        String str = "";
+        try {
+            d = new DataInputStream(System.in);
+            sc = new ServerSocket(1096);
+            System.out.println("server Started");
+            client = sc.accept();
+            InputStreamReader isr = new InputStreamReader(client.getInputStream());
+            fromclient = new BufferedReader(isr);
+            toclient = new PrintStream(client.getOutputStream());
+            while (true) {
+                str = fromclient.readLine();
+                System.out.println(str);
+                str = ":"+d.readLine();
+                toclient.println(str);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+\end{verbatim}
+\section*{Output}
+\begin{verbatim}
+:hello
+hello
+:sup
+sup
+:k
+k
+\end{verbatim}

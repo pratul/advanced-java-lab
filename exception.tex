@@ -1,0 +1,35 @@
+\pagebreak{}
+\section{Exception Handling}
+\begin{verbatim}
+
+public class Error {
+    public static void main(String[] args) {
+
+        int invalid = 0;
+        int num, count = 0;
+        for (int i = 0; i < args.length; i++)
+            {
+                try {
+                    num=Integer.parseInt(args[i]);
+                }
+                catch (NumberFormatException e) {
+                    invalid=invalid+1;
+                    System.out.println("invalid op:"+args[i]);
+                    continue;
+                }
+                count = count+1;
+            }
+        System.out.println("valid no:"+count);
+        System.out.println("invalid no:"+invalid);
+    }
+}
+\end{verbatim}
+\section*{Output}
+\begin{verbatim}
+>: java Error 9 asd a 2 45 d
+invalid op:asd
+invalid op:a
+invalid op:d
+valid no:3
+invalid no:3
+\end{verbatim}

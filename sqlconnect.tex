@@ -1,0 +1,46 @@
+\pagebreak{}
+\section{SQL Connectivity}
+\begin{verbatim}
+
+import java.sql.*;
+
+public class Authorsinfo {
+    public static void main(String[] args) {
+        try {
+            String str = "SELECT * FROM authors WHERE au_fname LIKE 'S%'";
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection con = DriverManager.getConnection("jdbc:odbc:somu");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(str);
+            System.out.println("ID | First name | Last name | City");
+            while (rs.next()) {
+                String id = rs.getString("au_id");
+                String fname = rs.getString("au_fname");
+                String lname = rs.getString("au_lname");
+                String city = rs.getString("au_city");
+                System.out.print(id+"\t");
+                if (fname.length() == 7)
+                    System.out.print(fname+"\t\t");
+                else
+                    System.out.print(fname+"\t");
+                if (lname.length() == 7)
+                    System.out.print(lname+"\t\t");
+                else
+                    System.out.print(lname+"\t");
+                System.out.println(city);
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Error occurred: "+e);
+        }
+    }
+}
+\end{verbatim}
+\section*{Output}
+\begin{verbatim}
+>: java Authorsinfo
+ID | First name | Last name | City
+66      Pratul      Kalia      Faridabad
+72      Ravish      Malik      Delhi
+75      Rishabh      Jain      Gurgaon
+\end{verbatim}
