@@ -1,7 +1,7 @@
-h2. Advanced Java Lab
+h1. Advanced Java Lab
 
 I had Advanced Java in 8th semester during college. These are the LaTeX sources of the practical file I made.
 
 h2. Warning
 
-My college is weird, teachers are strange and the syllabus is lame. The sources here might seem like a joke but this is what it is. Don't panic.
+My college is weird, teachers are strange and the syllabus is lame. The sources here might seem like a joke but this is what it is. DON'T PANIC.
