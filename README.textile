@@ -2,6 +2,17 @@ h1. Advanced Java Lab
 
 I had Advanced Java in 8th semester during college. These are the LaTeX sources of the practical file I made.
 
+h2. Files
+
+|_.File|_.Description|
+|mainpage.tex|Main file, that should be compiled|
+|applets.tex|Java applet demo|
+|exception.tex|Exception handling|
+|multithreads.tex|Multithreading|
+|clientserver.tex|Client - server architecture|
+|sqlconnect.tex|SQL connectivity using ODBC|
+|rmi.tex|RMI (Remote Method Invocation)|
+
 h2. Warning
 
 My college is weird, teachers are strange and the syllabus is lame. The sources here might seem like a joke but this is what it is. DON'T PANIC.
